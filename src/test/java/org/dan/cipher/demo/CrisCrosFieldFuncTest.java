@@ -2,6 +2,7 @@ package org.dan.cipher.demo;
 
 import static org.dan.cipher.demo.CellState.X;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -13,9 +14,10 @@ public class CrisCrosFieldFuncTest {
 
     @Test
     public void firstRowVictory() {
-        CrisCrossField.builder().height(3).width(3).build()
+        assertTrue(CrisCrossField.builder().height(3).width(3).build()
                 .set(CellAddress.builder().row(0).column(0).build(), X)
                 .set(CellAddress.builder().row(0).column(1).build(), X)
-                .set(CellAddress.builder().row(0).column(2).build(), X);
+                .set(CellAddress.builder().row(0).column(2).build(), X)
+                .isVictory());
     }
 }
