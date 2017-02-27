@@ -34,8 +34,9 @@ public class CrisCrossField {
                     first = state;
                 } else if (first != state) {
                     continue nextRow;
+                } else {
+                    return true;
                 }
-                return true;
             }
         }
         return false;
