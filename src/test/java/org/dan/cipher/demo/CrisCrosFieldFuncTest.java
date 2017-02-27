@@ -7,6 +7,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+
 public class CrisCrosFieldFuncTest {
     @Test
     public void rowFalseOnEmpty() {
@@ -50,10 +52,13 @@ public class CrisCrosFieldFuncTest {
     }
 
     private CrisCrossField newField() {
-        return CrisCrossField.builder().height(3).width(3).build();
+        return CrisCrossField.builder().height(3).width(3)
+                .cellMap(new HashMap<CellAddress, CellState>())
+                .build();
     }
 
     private CellAddress address(int row, int column) {
-        return CellAddress.builder().row(row).column(column).build();
+        return CellAddress.builder().row(row).column(column)
+                .build();
     }
 }
