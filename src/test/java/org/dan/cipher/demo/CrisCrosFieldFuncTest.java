@@ -5,6 +5,7 @@ import static org.dan.cipher.demo.CellState.X;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -34,6 +35,7 @@ public class CrisCrosFieldFuncTest {
     }
 
     @Test
+    @Ignore
     public void topLeftBottomRightVictory() {
         assertTrue(newField()
                 .set(address(0, 0), O)
