@@ -10,6 +10,17 @@ public class CrisCrossField {
     private final int width;
     private final int height;
 
+    public CrisCrossField set(CellAddress address, CellState state) {
+         if (cellMap.put(address, state) != null) {
+             throw new IllegalStateException("cell " + address + " is used");
+         }
+         return this;
+    }
+
+    public boolean isVictory() {
+        return isVictoryByRow();
+    }
+
     private boolean isVictoryByRow() {
         CellState first = null;
         nextRow:
