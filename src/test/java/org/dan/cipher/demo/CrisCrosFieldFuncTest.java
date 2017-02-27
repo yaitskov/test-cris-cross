@@ -9,15 +9,23 @@ import org.junit.Test;
 public class CrisCrosFieldFuncTest {
     @Test
     public void rowFalseOnEmpty() {
-        assertFalse(CrisCrossField.builder().height(3).width(3).build().isVictory());               ;
+        assertFalse(newField().isVictory());               ;
     }
 
     @Test
     public void firstRowVictory() {
-        assertTrue(CrisCrossField.builder().height(3).width(3).build()
-                .set(CellAddress.builder().row(0).column(0).build(), X)
-                .set(CellAddress.builder().row(0).column(1).build(), X)
-                .set(CellAddress.builder().row(0).column(2).build(), X)
+        assertTrue(newField()
+                .set(address(0, 0), X)
+                .set(address(0, 1), X)
+                .set(address(0, 2), X)
                 .isVictory());
+    }
+
+    private CrisCrossField newField() {
+        return CrisCrossField.builder().height(3).width(3).build();
+    }
+
+    private CellAddress address(int row, int column) {
+        return CellAddress.builder().row(row).column(column).build();
     }
 }
