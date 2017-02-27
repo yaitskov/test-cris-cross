@@ -1,5 +1,6 @@
 package org.dan.cipher.demo;
 
+import static org.dan.cipher.demo.CellState.O;
 import static org.dan.cipher.demo.CellState.X;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -27,6 +28,15 @@ public class CrisCrosFieldFuncTest {
                 .set(address(0, 0), X)
                 .set(address(1, 0), X)
                 .set(address(2, 0), X)
+                .isVictory());
+    }
+
+    @Test
+    public void topLeftBottomRightVictory() {
+        assertTrue(newField()
+                .set(address(0, 0), O)
+                .set(address(1, 1), O)
+                .set(address(2, 2), O)
                 .isVictory());
     }
 
