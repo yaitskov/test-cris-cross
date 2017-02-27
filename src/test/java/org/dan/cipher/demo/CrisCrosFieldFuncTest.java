@@ -21,6 +21,15 @@ public class CrisCrosFieldFuncTest {
                 .isVictory());
     }
 
+    @Test
+    public void firstColumnVictory() {
+        assertTrue(newField()
+                .set(address(0, 0), X)
+                .set(address(1, 0), X)
+                .set(address(2, 0), X)
+                .isVictory());
+    }
+
     private CrisCrossField newField() {
         return CrisCrossField.builder().height(3).width(3).build();
     }
