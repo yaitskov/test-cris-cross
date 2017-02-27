@@ -40,6 +40,15 @@ public class CrisCrosFieldFuncTest {
                 .isVictory());
     }
 
+    @Test
+    public void topLeftBottomRightNoVictory() {
+        assertFalse(newField()
+                .set(address(0, 0), O)
+                .set(address(1, 1), X)
+                .set(address(2, 2), O)
+                .isVictory());
+    }
+
     private CrisCrossField newField() {
         return CrisCrossField.builder().height(3).width(3).build();
     }
